@@ -11,6 +11,7 @@ import { Favorites } from "./pages/Favorites";
 import { QuickPlay } from "./pages/QuickPlay";
 import { SharedPage } from "./pages/SharedPage";
 import { GamePlayer } from "./pages/GamePlayer";
+import { NotFound } from "./pages/NotFound";
 
 export default function App() {
   return (
@@ -25,6 +26,7 @@ export default function App() {
           
           {/* Shared ecosystem pages matched by path parameter */}
           <Route path=":pageName" element={<SharedPage />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </BrowserRouter>

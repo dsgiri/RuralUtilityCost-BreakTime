@@ -61,7 +61,8 @@ export function Navbar() {
             <div className="-mr-2 flex items-center sm:hidden">
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="inline-flex items-center justify-center p-2 rounded-md text-stone-400 dark:text-stone-500 hover:text-stone-500 dark:hover:text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-800 focus:outline-none"
+                className="inline-flex items-center justify-center p-2 rounded-md text-stone-400 dark:text-stone-500 hover:text-stone-500 dark:hover:text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-800 focus:outline-none min-h-[48px] min-w-[48px]"
+                aria-label={isOpen ? "Close main menu" : "Open main menu"}
               >
                 <span className="sr-only">Open main menu</span>
                 {isOpen ? <X className="block h-6 w-6" /> : <Menu className="block h-6 w-6" />}
@@ -83,7 +84,7 @@ export function Navbar() {
                   to={item.path}
                   onClick={() => setIsOpen(false)}
                   className={cn(
-                    "flex items-center pl-3 pr-4 py-2 border-l-4 text-base font-medium",
+                    "flex items-center pl-3 pr-4 py-2 border-l-4 text-base font-medium min-h-[48px]",
                     active
                       ? "bg-emerald-50 dark:bg-emerald-900/50 border-emerald-600 dark:border-emerald-500 text-emerald-800 dark:text-emerald-200"
                       : "border-transparent text-stone-600 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-800 hover:border-stone-300 dark:hover:border-stone-700 hover:text-stone-800 dark:hover:text-stone-200"

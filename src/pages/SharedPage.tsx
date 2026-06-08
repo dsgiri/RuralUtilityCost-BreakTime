@@ -1,9 +1,16 @@
 import { useParams } from "react-router-dom";
 import { SEO } from "../components/ui/SEO";
+import { NotFound } from "./NotFound";
+import { ContactForm } from "../components/ui/ContactForm";
 
 export function SharedPage() {
   const { pageName } = useParams<{ pageName: string }>();
   
+  const validPages = ['legal', 'privacy', 'terms', 'disclaimer', 'contact'];
+  if (pageName && !validPages.includes(pageName.toLowerCase())) {
+    return <NotFound />;
+  }
+
   // Default to Information if no page name is provided, or capitalize it
   const title = pageName ? pageName.charAt(0).toUpperCase() + pageName.slice(1) : 'Information';
 
@@ -30,10 +37,14 @@ export function SharedPage() {
             </div>
           ) : null}
 
-          <div className="mt-12 pt-8 border-t border-stone-100 dark:border-stone-800 flex items-center justify-between text-base">
-            <span className="text-stone-500 dark:text-stone-400">Source of truth maintained at ruralutilitycost.com</span>
-            <a href="#" className="font-bold text-emerald-700 dark:text-emerald-400 hover:text-emerald-800 dark:hover:text-emerald-300">Return to Master Site &rarr;</a>
-          </div>
+          {title === 'Contact' ? (
+            <ContactForm />
+          ) : (
+            <div className="mt-12 pt-8 border-t border-stone-100 dark:border-stone-800 flex items-center justify-between text-base">
+              <span className="text-stone-500 dark:text-stone-400">Source of truth maintained at ruralutilitycost.com</span>
+              <a href="#" className="font-bold text-emerald-700 dark:text-emerald-400 hover:text-emerald-800 dark:hover:text-emerald-300">Return to Master Site &rarr;</a>
+            </div>
+          )}
         </div>
       </div>
     </div>

@@ -8,6 +8,8 @@ import { GameCard } from "../components/ui/GameCard";
 import { CategoryFilter } from "../components/ui/CategoryFilter";
 import { SEO } from "../components/ui/SEO";
 
+import { AdContainer } from "../components/ui/AdContainer";
+
 export function Home() {
   const [selectedCategory, setSelectedCategory] = useState<Category | "All">("All");
   const { isFavorite, toggleFavorite } = useFavorites();
@@ -74,6 +76,8 @@ export function Home() {
           />
         </div>
       </section>
+
+      <AdContainer slotId="home-mid-ad-placeholder" type="in-content" />
 
       {/* Game Library Preview */}
       <section>
